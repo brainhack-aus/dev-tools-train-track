@@ -68,6 +68,13 @@ You will then pull some changes I have made upstream using the source control ta
 
 Use the examples shown in the [Dipy Quick Start Guide](https://dipy.org/documentation/1.4.1./examples_built/quick_start/#example-quick-start) to create three (trivial) methods in a new module, i.e. a Python file called `intensify.py`, to load a nifti file, multiply its intensity, and save it back to disk.
 
+To get some test data to play with, first download a test dataset from Dipy in a Python terminal
+
+```python
+>>> from dipy.data import fetch_sherbrooke_3shell
+>>> fetch_sherbrooke_3shell()
+```
+
 ### Write command line using click
 
 Use [click](https://click.palletsprojects.com/en/8.0.x/quickstart/#basic-concepts-creating-a-command) to create a script in a separate file that imports and runs your method in a command line tool that takes the following arguments/options
