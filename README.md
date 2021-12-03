@@ -75,6 +75,8 @@ To get some test data to play with, first download a test dataset from Dipy in a
 >>> fetch_sherbrooke_3shell()
 ```
 
+This will download a DWI scan in NIfTI format to the `$HOME/.dipy/fetch_sherbrooke_3shell` directory.
+
 ### Write command line using click
 
 Use [click](https://click.palletsprojects.com/en/8.0.x/quickstart/#basic-concepts-creating-a-command) to create a script in a separate file that imports and runs your method in a command line tool that takes the following arguments/options
