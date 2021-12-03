@@ -164,7 +164,7 @@ if os.getenv('_PYTEST_RAISE', "0") != "0":
 
 @pytest.fixture
 def test_image():
-    return numpy.ones([10,10]
+    return numpy.ones([10,10])
 ```
 
 which can then be provided as an argument to your test function automagically (i.e. the argument name must match the name of the fixture), e.g.
