@@ -110,10 +110,13 @@ Create a directory called `tests` and a file called `test_intensify.py` within i
 Write a simple test that tests a small part of your code e.g.
 
 ```python
+import numpy
+from intensify import modulate_image
+
 def test_intensify():
-    orig_image = dipy.load_nifti()
-    intensified_image = intensify(orig_image, 10)
-    assert np.max(my_image) == np.max(orig_image) * 10
+    orig_image = numpy.ones([10,10])
+    intensified_image = modulate_image(orig_image, 10, 5)
+    assert np.max(my_image) == np.max(orig_image) * 10 + 5
 ```
 ### Configure Conftest to break in exception
 
@@ -121,17 +124,7 @@ Add a `conftest.py` file to allow unittests to break on exceptions in debug mode
 
 ```python
 import os
-import shutil
-from pathlib import Path
-from tempfile import mkdtemp
 import pytest
-
-
-@pytest.fixture
-def work_dir():
-    tmp_dir = tempfile.mkdtemp()
-    yield tmp_dir
-    shutil.rmtree(tmp_dir)
 
 # For debugging in IDE's don't catch raised exceptions and let the IDE
 # break at it
@@ -146,4 +139,41 @@ if os.getenv('_PYTEST_RAISE', "0") != "0":
         raise excinfo.value
 
 ```
+
+If you keep writing the same code across multiple tests (e.g. creating a test image) you can put them in a Pytest fixture in your conftest.py, e.g.
+
+```python
+import os
+import pytest
+import shutil
+from pathlib import Path
+from tempfile import mkdtemp
+import numpy
+
+# For debugging in IDE's don't catch raised exceptions and let the IDE
+# break at it
+if os.getenv('_PYTEST_RAISE', "0") != "0":
+
+    @pytest.hookimpl(tryfirst=True)
+    def pytest_exception_interact(call):
+        raise call.excinfo.value
+
+    @pytest.hookimpl(tryfirst=True)
+    def pytest_internalerror(excinfo):
+        raise excinfo.value
+
+@pytest.fixture
+def test_image():
+    return numpy.ones([10,10]
+```
+
+which can then be provided as an argument to your test function automagically (i.e. the argument name must match the name of the fixture), e.g.
+
+```python
+from intensify import modulate_image
+
+def test_intensify(test_image)
+    intensified_image = modulate_image(test_image, 10, 5)
+    assert np.max(my_image) == np.max(test_image) * 10 + 5
+``````
 
