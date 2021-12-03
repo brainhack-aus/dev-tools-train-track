@@ -20,12 +20,7 @@ VS Code is a general purpose code editor that can be configured to be used for v
 
 <img width="1704" alt="extensions-tab" src="https://user-images.githubusercontent.com/1054870/144533458-92fdc895-b464-4c18-9d65-cd77021a7f4b.png">
 
-The extensions we will use/reference today are
-
-* Python
-* Github
-* Gitlens
-* Docker
+We will be using the "Python" extension today so please make sure it is installed
 
 ### Virtual environments
 
