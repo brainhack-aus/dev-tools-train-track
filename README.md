@@ -16,7 +16,7 @@ For the uninitated, there is a substantial difference between Python versions 2 
 
 Installing VS Code itself is pretty straightforward. Just [download](https://code.visualstudio.com/download) and [install](https://code.visualstudio.com/docs/setup/setup-overview) it from the visual studio website.
 
-VS Code is a general purpose code editor that can be configured to be used for virtually any programming language. This supported by a wide array of 3rd party extensions. New extensions can be added to your workspace by clicking on the "Extensions" tab on the bar on the LHS of the screen
+VS Code is a general purpose code editor that can be configured to be used for virtually any programming language. This is supported by a wide array of 3rd party extensions. New extensions can be added to your workspace by clicking on the "Extensions" tab on the bar on the LHS of the screen
 
 <img width="1704" alt="extensions-tab" src="https://user-images.githubusercontent.com/1054870/144533458-92fdc895-b464-4c18-9d65-cd77021a7f4b.png">
 
